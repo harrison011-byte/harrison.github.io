@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Database - Wildlife Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Additional styles for animals page */
+        .animal-filters {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 2rem auto;
+            max-width: 1200px;
+        }
+        
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .filter-btn {
+            padding: 0.7rem 1.5rem;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background-color: #2c5530;
+            color: white;
+        }
+        
+        .search-box {
+            flex-grow: 1;
+            max-width: 400px;
+            padding: 0.7rem 1rem;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 1rem;
+        }
+        
+        .animals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem auto;
+            max-width: 1200px;
+        }
+        
+        .animal-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .animal-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .animal-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .animal-content {
+            padding: 1.5rem;
+        }
+        
+        .animal-title {
+            color: #2c5530;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .animal-scientific {
+            color: #8bc34a;
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .animal-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .animal-detail {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #666;
+        }
+        
+        .animal-description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .status-endangered {
+            background-color: #ffcdd2;
+            color: #c62828;
+        }
+        
+        .status-vulnerable {
+            background-color: #ffe0b2;
+            color: #ef6c00;
+        }
+        
+        .status-least-concern {
+            background-color: #c8e6c9;
+            color: #2c5530;
+        }
+        
+        .back-button {
+            display: inline-block;
+            margin: 2rem;
+            color: #2c5530;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .back-button i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo"><i class="fas fa-paw"></i> Wildlife Explorer</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="animals.html" class="active">Animals</a></li>
+                <li><a href="habitats.html">Habitats</a></li>
+                <li><a href="conservation.html">Conservation</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        
+        <section class="hero">
+            <h1>Animal Database</h1>
+            <p class="subtitle">Explore our comprehensive database of wildlife species from around the world</p>
+            <p class="description">Learn about different animals, their habitats, conservation status, and unique characteristics.</p>
+        </section>
+
+        <div class="animal-filters">
+            <div class="filter-container">
+                <input type="text" class="search-box" placeholder="Search animals...">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="mammal">Mammals</button>
+                <button class="filter-btn" data-filter="bird">Birds</button>
+                <button class="filter-btn" data-filter="reptile">Reptiles</button>
+                <button class="filter-btn" data-filter="marine">Marine</button>
+            </div>
+        </div>
+
+        <div class="animals-grid">
+            <!-- Animal Card 1 -->
+            <div class="animal-card" data-category="mammal">
+                <img src="tiger.jpg" alt="Bengal Tiger" class="animal-image">
+                <div class="animal-content">
+                    <h3 class="animal-title">Bengal Tiger</h3>
+                    <p class="animal-scientific">Panthera tigris tigris</p>
+                    <div class="animal-details">
+                        <span class="animal-detail"><i class="fas fa-globe-asia"></i> Asia</span>
+                        <span class="animal-detail"><i class="fas fa-ruler-combined"></i> 2.5-3.1m</span>
+                        <span class="animal-detail"><i class="fas fa-weight"></i> 180-260kg</span>
+                    </div>
+                    <p class="animal-description">The Bengal tiger is a population of the Panthera tigris tigris subspecies. It is the national animal of both India and Bangladesh.</p>
+                    <span class="status status-endangered">Endangered</span>
+                </div>
+            </div>
+
+            <!-- Animal Card 2 -->
+            <div class="animal-card" data-category="bird">
+                <img src="bald-eagle.jpg" alt="Bald Eagle" class="animal-image">
+                <div class="animal-content">
+                    <h3 class="animal-title">Bald Eagle</h3>
+                    <p class="animal-scientific">Haliaeetus leucocephalus</p>
+                    <div class="animal-details">
+                        <span class="animal-detail"><i class="fas fa-globe-americas"></i> North America</span>
+                        <span class="animal-detail"><i class="fas fa-ruler-combined"></i> 0.7-1m</span>
+                        <span class="animal-detail"><i class="fas fa-weight"></i> 3-6.5kg</span>
+                    </div>
+                    <p class="animal-description">The bald eagle is a bird of prey found in North America. It is the national bird and symbol of the United States of America.</p>
+                    <span class="status status-least-concern">Least Concern</span>
+                </div>
+            </div>
+
+            <!-- Animal Card 3 -->
+            <div class="animal-card" data-category="marine">
+                <img src="dolphin.jpg" alt="Bottlenose Dolphin" class="animal-image">
+                <div class="animal-content">
+                    <h3 class="animal-title">Bottlenose Dolphin</h3>
+                    <p class="animal-scientific">Tursiops truncatus</p>
+                    <div class="animal-details">
+                        <span class="animal-detail"><i class="fas fa-water"></i> Oceans Worldwide</span>
+                        <span class="animal-detail"><i class="fas fa-ruler-combined"></i> 2-4m</span>
+                        <span class="animal-detail"><i class="fas fa-weight"></i> 150-650kg</span>
+                    </div>
+                    <p class="animal-description">Bottlenose dolphins are the most common and well-known members of the family Delphinidae, the family of oceanic dolphins.</p>
+                    <span class="status status-least-concern">Least Concern</span>
+                </div>
+            </div>
+
+            <!-- Animal Card 4 -->
+            <div class="animal-card" data-category="reptile">
+                <img src="komodo.jpg" alt="Komodo Dragon" class="animal-image">
+                <div class="animal-content">
+                    <h3 class="animal-title">Komodo Dragon</h3>
+                    <p class="animal-scientific">Varanus komodoensis</p>
+                    <div class="animal-details">
+                        <span class="animal-detail"><i class="fas fa-globe-asia"></i> Indonesia</span>
+                        <span class="animal-detail"><i class="fas fa-ruler-combined"></i> 2-3m</span>
+                        <span class="animal-detail"><i class="fas fa-weight"></i> 70-90kg</span>
+                    </div>
+                    <p class="animal-description">The Komodo dragon is the largest living species of lizard, growing to a maximum length of 3 meters and weighing up to 90 kg.</p>
+                    <span class="status status-endangered">Endangered</span>
+                </div>
+            </div>
+
+            <!-- Animal Card 5 -->
+            <div class="animal-card" data-category="mammal">
+                <img src="panda.jpg" alt="Giant Panda" class="animal-image">
+                <div class="animal-content">
+                    <h3 class="animal-title">Giant Panda</h3>
+                    <p class="animal-scientific">Ailuropoda melanoleuca</p>
+                    <div class="animal-details">
+                        <span class="animal-detail"><i class="fas fa-globe-asia"></i> China</span>
+                        <span class="animal-detail"><i class="fas fa-ruler-combined"></i> 1.2-1.9m</span>
+                        <span class="animal-detail"><i class="fas fa-weight"></i> 70-125kg</span>
+                    </div>
+                    <p class="animal-description">The giant panda is a bear native to south central China. It is easily recognized by its large black patches around its eyes.</p>
+                    <span class="status status-vulnerable">Vulnerable</span>
+                </div>
+            </div>
+
+            <!-- Animal Card 6 -->
+            <div class="animal-card" data-category="bird">
+                <img src="penguin.jpg" alt="Emperor Penguin" class="animal-image">
+                <div class="animal-content">
+                    <h3 class="animal-title">Emperor Penguin</h3>
+                    <p class="animal-scientific">Aptenodytes forsteri</p>
+                    <div class="animal-details">
+                        <span class="animal-detail"><i class="fas fa-snowflake"></i> Antarctica</span>
+                        <span class="animal-detail"><i class="fas fa-ruler-combined"></i> 1.1-1.3m</span>
+                        <span class="animal-detail"><i class="fas fa-weight"></i> 22-45kg</span>
+                    </div>
+                    <p class="animal-description">The emperor penguin is the tallest and heaviest of all living penguin species and is endemic to Antarctica.</p>
+                    <span class="status status-least-concern">Least Concern</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Wildlife Explorer</h3>
+                <p>Exploring nature, one species at a time.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="index.html" style="color:#ddd;">Home</a></p>
+                <p><a href="animals.html" style="color:#ddd;">Animals</a></p>
+                <p><a href="habitats.html" style="color:#ddd;">Habitats</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Wildlife Explorer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Filter functionality
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                const animalCards = document.querySelectorAll('.animal-card');
+                
+                animalCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Search functionality
+        const searchBox = document.querySelector('.search-box');
+        searchBox.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const animalCards = document.querySelectorAll('.animal-card');
+            
+            animalCards.forEach(card => {
+                const title = card.querySelector('.animal-title').textContent.toLowerCase();
+                const scientific = card.querySelector('.animal-scientific').textContent.toLowerCase();
+                const description = card.querySelector('.animal-description').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || scientific.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Navigation active state
+        const currentPage = window.location.pathname.split('/').pop();
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
