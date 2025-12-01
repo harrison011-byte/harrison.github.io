@@ -1,0 +1,22 @@
+/* Sets the default font and color for the entire body */
+body {
+    background-color: #f0fff0; /* Very light green/honeydew color */
+    font-family: Arial, sans-serif;
+    text-align: center; /* Centers all text content */
+    margin-top: 50px; /* Adds some space at the top of the page */
+}
+
+/* Styles the main heading (<h1>) */
+h1 {
+    color: #006400; /* Dark green color */
+    font-size: 3em; /* Large text size */
+    border-bottom: 2px solid #006400; /* Adds a line underneath the title */
+    display: inline-block; /* Makes the border only as wide as the text */
+    padding-bottom: 10px;
+}
+
+/* Styles the paragraph text (<p>) */
+p {
+    color: #333333; /* Dark gray color */
+    font-size: 1.2em;
+}
