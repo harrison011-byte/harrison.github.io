@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habitats - Wildlife Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Additional styles for habitats page */
+        .habitat-hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.8)), url('habitat-banner.jpg') center/cover;
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+        }
+        
+        .habitat-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .habitat-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .habitat-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem auto;
+            max-width: 1200px;
+        }
+        
+        .habitat-category {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .habitat-category:hover {
+            transform: translateY(-10px);
+        }
+        
+        .habitat-header {
+            padding: 2rem;
+            color: white;
+            text-align: center;
+        }
+        
+        .habitat-content {
+            padding: 1.5rem;
+        }
+        
+        .habitat-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c5530;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .habitat-animals {
+            margin-top: 1rem;
+        }
+        
+        .animal-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .animal-tag {
+            background-color: #e8f5e9;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            color: #2c5530;
+        }
+        
+        .rainforest { background: linear-gradient(135deg, #1b5e20, #4caf50); }
+        .ocean { background: linear-gradient(135deg, #01579b, #0288d1); }
+        .desert { background: linear-gradient(135deg, #ff6f00, #ffa726); }
+        .arctic { background: linear-gradient(135deg, #0277bd, #81d4fa); }
+        .savanna { background: linear-gradient(135deg, #8d6e63, #bcaaa4); }
+        .mountains { background: linear-gradient(135deg, #546e7a, #90a4ae); }
+        
+        .back-button {
+            display: inline-block;
+            margin: 2rem;
+            color: #2c5530;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .back-button i {
+            margin-right: 8px;
+        }
+        
+        .conservation-tips {
+            background-color: #e8f5e9;
+            padding: 3rem;
+            border-radius: 15px;
+            margin: 3rem auto;
+            max-width: 1200px;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .tip-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .tip-card i {
+            font-size: 2rem;
+            color: #8bc34a;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo"><i class="fas fa-paw"></i> Wildlife Explorer</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="animals.html">Animals</a></li>
+                <li><a href="habitats.html" class="active">Habitats</a></li>
+                <li><a href="conservation.html">Conservation</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        
+        <section class="habitat-hero">
+            <h1>World Habitats</h1>
+            <p>Explore Earth's diverse ecosystems and learn about the unique wildlife that calls each habitat home.</p>
+        </section>
+
+        <div class="habitat-categories">
+            <!-- Rainforest Habitat -->
+            <div class="habitat-category">
+                <div class="habitat-header rainforest">
+                    <h2><i class="fas fa-tree"></i> Tropical Rainforest</h2>
+                    <p>Earth's biodiversity hotspots</p>
+                </div>
+                <div class="habitat-content">
+                    <p>Tropical rainforests are found near the equator and are characterized by high rainfall, humidity, and incredible biodiversity.</p>
+                    
+                    <div class="habitat-stats">
+                        <div class="stat">
+                            <span class="stat-value">50%</span>
+                            <span class="stat-label">World's Species</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">6%</span>
+                            <span class="stat-label">Earth's Land</span>
+                        </div>
+                    </div>
+                    
+                    <div class="habitat-animals">
+                        <h4>Key Species:</h4>
+                        <div class="animal-list">
+                            <span class="animal-tag">Jaguar</span>
+                            <span class="animal-tag">Orangutan</span>
+                            <span class="animal-tag">Toucan</span>
+                            <span class="animal-tag">Poison Dart Frog</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ocean Habitat -->
+            <div class="habitat-category">
+                <div class="habitat-header ocean">
+                    <h2><i class="fas fa-water"></i> Ocean Ecosystems</h2>
+                    <p>The blue heart of our planet</p>
+                </div>
+                <div class="habitat-content">
+                    <p>Oceans cover 71% of Earth's surface and contain 97% of the planet's water, hosting diverse marine life.</p>
+                    
+                    <div class="habitat-stats">
+                        <div class="stat">
+                            <span class="stat-value">71%</span>
+                            <span class="stat-label">Earth Surface</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">50-80%</span>
+                            <span class="stat-label">Oxygen</span>
+                        </div>
+                    </div>
+                    
+                    <div class="habitat-animals">
+                        <h4>Key Species:</h4>
+                        <div class="animal-list">
+                            <span class="animal-tag">Blue Whale</span>
+                            <span class="animal-tag">Great White Shark</span>
+                            <span class="animal-tag">Coral</span>
+                            <span class="animal-tag">Sea Turtle</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desert Habitat -->
+            <div class="habitat-category">
+                <div class="habitat-header desert">
+                    <h2><i class="fas fa-sun"></i> Desert Landscapes</h2>
+                    <p>Life in extreme conditions</p>
+                </div>
+                <div class="habitat-content">
+                    <p>Deserts cover about one-fifth of Earth's surface and feature extreme temperatures and minimal precipitation.</p>
+                    
+                    <div class="habitat-stats">
+                        <div class="stat">
+                            <span class="stat-value">20%</span>
+                            <span class="stat-label">Earth's Land</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">&lt;10"</span>
+                            <span class="stat-label">Annual Rain</span>
+                        </div>
+                    </div>
+                    
+                    <div class="habitat-animals">
+                        <h4>Key Species:</h4>
+                        <div class="animal-list">
+                            <span class="animal-tag">Camel</span>
+                            <span class="animal-tag">Fennec Fox</span>
+                            <span class="animal-tag">Scorpion</span>
+                            <span class="animal-tag">Sidewinder Snake</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arctic Habitat -->
+            <div class="habitat-category">
+                <div class="habitat-header arctic">
+                    <h2><i class="fas fa-snowflake"></i> Polar Regions</h2>
+                    <p>The frozen frontiers</p>
+                </div>
+                <div class="habitat-content">
+                    <p>Polar regions are characterized by extreme cold, ice, and snow, with unique adaptations for survival.</p>
+                    
+                    <div class="habitat-stats">
+                        <div class="stat">
+                            <span class="stat-value">-40°C</span>
+                            <span class="stat-label">Avg. Temp</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">14M km²</span>
+                            <span class="stat-label">Ice Coverage</span>
+                        </div>
+                    </div>
+                    
+                    <div class="habitat-animals">
+                        <h4>Key Species:</h4>
+                        <div class="animal-list">
+                            <span class="animal-tag">Polar Bear</span>
+                            <span class="animal-tag">Penguin</span>
+                            <span class="animal-tag">Arctic Fox</span>
+                            <span class="animal-tag">Walrus</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Savanna Habitat -->
+            <div class="habitat-category">
+                <div class="habitat-header savanna">
+                    <h2><i class="fas fa-seedling"></i> Grassland Savannas</h2>
+                    <p>Where predators and prey roam free</p>
+                </div>
+                <div class="habitat-content">
+                    <p>Savannas are mixed woodland-grassland ecosystems characterized by widely spaced trees and seasonal rainfall.</p>
+                    
+                    <div class="habitat-stats">
+                        <div class="stat">
+                            <span class="stat-value">20%</span>
+                            <span class="stat-label">Earth's Land</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">30-50"</span>
+                            <span class="stat-label">Annual Rain</span>
+                        </div>
+                    </div>
+                    
+                    <div class="habitat-animals">
+                        <h4>Key Species:</h4>
+                        <div class="animal-list">
+                            <span class="animal-tag">Lion</span>
+                            <span class="animal-tag">Elephant</span>
+                            <span class="animal-tag">Giraffe</span>
+                            <span class="animal-tag">Zebra</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mountain Habitat -->
+            <div class="habitat-category">
+                <div class="habitat-header mountains">
+                    <h2><i class="fas fa-mountain"></i> Mountain Ranges</h2>
+                    <p>High-altitude ecosystems</p>
+                </div>
+                <div class="habitat-content">
+                    <p>Mountain ecosystems vary with altitude, creating distinct climate zones and specialized wildlife.</p>
+                    
+                    <div class="habitat-stats">
+                        <div class="stat">
+                            <span class="stat-value">24%</span>
+                            <span class="stat-label">Earth's Land</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">50%</span>
+                            <span class="stat-label">Fresh Water</span>
+                        </div>
+                    </div>
+                    
+                    <div class="habitat-animals">
+                        <h4>Key Species:</h4>
+                        <div class="animal-list">
+                            <span class="animal-tag">Snow Leopard</span>
+                            <span class="animal-tag">Mountain Goat</span>
+                            <span class="animal-tag">Condor</span>
+                            <span class="animal-tag">Marmot</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="conservation-tips">
+            <h2 style="text-align: center; color: #2c5530;">Protecting Habitats</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Every habitat is vital for Earth's balance. Here's how you can help:</p>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <i class="fas fa-recycle"></i>
+                    <h3>Reduce Waste</h3>
+                    <p>Minimize plastic use and recycle properly to protect marine and land habitats.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Support Conservation</h3>
+                    <p>Donate to organizations that protect endangered habitats and species.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <i class="fas fa-shopping-bag"></i>
+                    <h3>Choose Sustainable</h3>
+                    <p>Buy products from companies that practice sustainable sourcing.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Educate Others</h3>
+                    <p>Share knowledge about habitat conservation with friends and family.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Wildlife Explorer</h3>
+                <p>Protecting habitats, preserving life.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Explore More</h3>
+                <p><a href="animals.html" style="color:#ddd;">Animal Database</a></p>
+                <p><a href="conservation.html" style="color:#ddd;">Conservation</a></p>
+                <p><a href="index.html#contact" style="color:#ddd;">Get Involved</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Our Journey</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Wildlife Explorer. All rights reserved. | <a href="#" style="color:#8bc34a;">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation active state
+        const currentPage = window.location.pathname.split('/').pop();
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
