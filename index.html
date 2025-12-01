@@ -1,18 +1,170 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Wildlife Explorer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildlife Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <h1>Welcome to Wildlife Explorer</h1>
-  <p>Discover animals, habitats and nature!</p> 
-  <img> C:\Users\harrison\Pictures/wildlife1
-        C:\Users\harrison\Pictures/wildlife2 
-         C:\Users\harrison\Pictures/wildlife3
-         C:\Users\harrison\Pictures/wildlife4
-</img>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo"><i class="fas fa-paw"></i> Wildlife Explorer</h1>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#habitats">Habitats</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero" id="home">
+            <h1>Welcome to Wildlife Explorer</h1>
+            <p class="subtitle">Discover amazing animals, diverse habitats, and the beauty of nature</p>
+            <p class="description">Explore the wonders of wildlife through our curated collection of images and information about creatures from around the world.</p>
+            <a href="#gallery" class="cta-button">Explore Gallery <i class="fas fa-arrow-right"></i></a>
+        </section>
+
+        <section class="image-section" id="gallery">
+            <h2>Wildlife Gallery</h2>
+            <p class="section-subtitle">A glimpse into the natural world</p>
+            
+            <div class="image-gallery">
+                <div class="image-card">
+                    <img src="wildlife1.jpg" alt="Mountain Lion in forest" class="gallery-img">
+                    <div class="image-info">
+                        <h3>Mountain Lion</h3>
+                        <p>North American predator in its natural forest habitat</p>
+                    </div>
+                </div>
+                
+                <div class="image-card">
+                    <img src="wildlife2.jpg" alt="Colorful tropical birds" class="gallery-img">
+                    <div class="image-info">
+                        <h3>Tropical Birds</h3>
+                        <p>Vibrant avian species from tropical rainforests</p>
+                    </div>
+                </div>
+                
+                <div class="image-card">
+                    <img src="wildlife3.jpg" alt="Elephant herd in savanna" class="gallery-img">
+                    <div class="image-info">
+                        <h3>African Elephant</h3>
+                        <p>Majestic elephant herd roaming the African savanna</p>
+                    </div>
+                </div>
+                
+                <div class="image-card">
+                    <img src="wildlife4.jpg" alt="Polar bear on ice" class="gallery-img">
+                    <div class="image-info">
+                        <h3>Polar Bear</h3>
+                        <p>Arctic predator navigating the melting ice caps</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="habitats-section" id="habitats">
+            <h2>Major Habitats</h2>
+            <div class="habitats-grid">
+                <div class="habitat-card">
+                    <i class="fas fa-tree"></i>
+                    <h3>Forests</h3>
+                    <p>Home to countless species of mammals, birds, and insects.</p>
+                </div>
+                <div class="habitat-card">
+                    <i class="fas fa-water"></i>
+                    <h3>Oceans</h3>
+                    <p>Covering 71% of Earth, rich with marine biodiversity.</p>
+                </div>
+                <div class="habitat-card">
+                    <i class="fas fa-mountain"></i>
+                    <h3>Mountains</h3>
+                    <p>High-altitude ecosystems with unique adapted species.</p>
+                </div>
+                <div class="habitat-card">
+                    <i class="fas fa-sun"></i>
+                    <h3>Deserts</h3>
+                    <p>Extreme environments with specialized wildlife.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section" id="about">
+            <h2>About Wildlife Explorer</h2>
+            <p>Wildlife Explorer is dedicated to showcasing the beauty and diversity of Earth's animal kingdom. Our mission is to educate and inspire people about wildlife conservation and the importance of protecting natural habitats.</p>
+            <p>Through photography and education, we hope to foster a deeper connection between people and the natural world.</p>
+        </section>
+    </main>
+
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Wildlife Explorer</h3>
+                <p>Exploring nature, one species at a time.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> contact@wildlifeexplorer.com</p>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Wildlife Explorer. All rights reserved. | Designed with <i class="fas fa-heart"></i> for nature lovers</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add active class to current section in navigation
+        window.addEventListener('scroll', function() {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if(scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
